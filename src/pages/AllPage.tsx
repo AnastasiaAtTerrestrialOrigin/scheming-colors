@@ -23,10 +23,11 @@ export const AllPage: React.FC = ({}) => {
         
         return unstubscribe;
     }, []);
-    
+ 
     return (
         <div id="all-page">
             This page shows all color schemes;
+
             <ColorSchemesList colorSchemes={colorSchemes} />
         </div>
     );
