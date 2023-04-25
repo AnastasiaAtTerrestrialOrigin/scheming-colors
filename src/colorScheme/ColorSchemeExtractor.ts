@@ -1,7 +1,7 @@
 
 export class ColorSchemeExtractor {
   private static rgbRegex = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)|rgba\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),\s*([\d.]+)\)/gi;
-  private static hexRegex = /#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/g;
+  private static hexRegex = /([#]?[A-Fa-f0-9]{6}|[#]?[A-Fa-f0-9]{3})/g;
 
   private static rgbToHex(r: number, g: number, b: number): string {
     return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
