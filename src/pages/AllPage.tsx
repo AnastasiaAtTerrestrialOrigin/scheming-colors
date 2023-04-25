@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
+import { CiPalette as pageIcon } from 'react-icons/ci';
 
 import { useDataProviders } from '../DataProvidersContext';
 import ColorScheme from '../colorScheme/ColorScheme';
 import ColorSchemesList from '../colorScheme/components/ColorSchemesList';
+import CorePage from '../CorePage';
 
-export const AllPage: React.FC = ({}) => {
+const PAGE_NAME = "View All";
+const PAGE_PATH = "/view";
+
+export const AllPage: CorePage = ({}) => {
     
     const [ colorSchemes, setColorSchemes ] = useState<ColorScheme[]>([]);
     const { colorSchemeDao } = useDataProviders();
@@ -26,11 +31,13 @@ export const AllPage: React.FC = ({}) => {
  
     return (
         <div id="all-page">
-            This page shows all color schemes;
-
             <ColorSchemesList colorSchemes={colorSchemes} />
         </div>
     );
 };
+
+AllPage.pageName = PAGE_NAME;
+AllPage.pageRoutePath = PAGE_PATH;
+AllPage.pageIcon = pageIcon;
 
 export default AllPage;

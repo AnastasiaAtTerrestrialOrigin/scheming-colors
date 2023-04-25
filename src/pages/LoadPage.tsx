@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
-import { } from '@terrestrialorigin/core';
+import { CiFolderOn as pageIcon } from 'react-icons/ci';
 
 import { useDataProviders } from '../DataProvidersContext';
 import ColorScheme, { generateColorSchemeId } from '../colorScheme/ColorScheme';
 import ColorSchemeExtractor from '../colorScheme/ColorSchemeExtractor';
 import ColorSchemePreview from '../colorScheme/components/ColorSchemePreview';
 import ColorSchemesList from '../colorScheme/components/ColorSchemesList';
+import CorePage from '../CorePage';
 
 import './colorSchemes.css';
 
-export const LoadPage: React.FC = ({}) => {
+const PAGE_NAME = "Load";
+const PAGE_PATH = "/load";
+
+export const LoadPage: CorePage = ({}) => {
     
     const [ files, setFiles ] = useState<File[]>([]);
     const [ colorSchemes, setColorSchemes ] = useState<ColorScheme[]>([]);
@@ -114,5 +118,9 @@ export const LoadPage: React.FC = ({}) => {
         </div>
     );
 };
+
+LoadPage.pageName = PAGE_NAME;
+LoadPage.pageRoutePath = PAGE_PATH;
+LoadPage.pageIcon = pageIcon;
 
 export default LoadPage;

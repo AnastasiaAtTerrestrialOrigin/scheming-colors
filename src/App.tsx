@@ -1,5 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import CorePage from './CorePage';
+import Menu from './components/Menu';
 
 // pages
 import AllPage from './pages/AllPage';
@@ -8,23 +10,39 @@ import LoadPage from './pages/LoadPage';
 import { DataProvidersContext, dataProviders } from './DataProvidersContext';
 
 function App() {
+    
+    const [ allPages, setAllPages ] = useState<CorePage[]>([
+        AllPage, NewPage, LoadPage
+    ]);
+    const [ pagesInMainMenu, setPagesInMainMenu ] = useState<CorePage[]>([
+        AllPage, NewPage, LoadPage
+    ]);
+    
+    const MainPage = AllPage;
+    
     return (
         <DataProvidersContext.Provider value={dataProviders}>
             <Router>
                 <section id="main">
-                    <ul id="main-nav">
-                        <li><Link to="/">View All</Link></li>
-                        <li><Link to="/new">New</Link></li>
-                        <li><Link to="/load">Load</Link></li>
-                    </ul>
+                
+                    <Menu pages={pagesInMainMenu} />
 
                     <Routes>
-                        <Route path="/" element={<AllPage />} />
-                        <Route path="/new" element={<NewPage />} />
-                        <Route path="/load" element={<LoadPage />} />
+                        
+                    
+                        { allPages.map((Page, index) => 
+                            <Route path={Page.pageRoutePath} key={`reactRoute${index}`}
+                                element={<Page />} />  
+                        )}
+
+                        <Route path="/" element={<MainPage />} />
+                        
                     </Routes>
                 </section>
             </Router>
+            
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         </DataProvidersContext.Provider>
     );
     }

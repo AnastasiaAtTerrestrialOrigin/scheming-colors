@@ -1,0 +1,39 @@
+.menu {
+    bottom: 0;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    margin-bottom: 0px;
+    display: flex;
+}
+
+.menu li {
+    display: flex;
+    padding: 1em;
+    list-style-type: none;
+    flex: 1;
+    margin: auto;
+}
+
+.menu li label {
+    display: flex;
+    margin-left: 1ex;
+}
+
+.menu li a {
+    margin: auto;
+    color: black;
+    text-decoration: none;
+}
+
+.menu a.active {
+    font-weight: bold;
+}
+
+.menu .button {
+    display: flex;
+}
+
+.menu .button .icon {
+    margin: auto;
+}
