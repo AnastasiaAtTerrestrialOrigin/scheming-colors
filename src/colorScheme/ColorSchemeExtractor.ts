@@ -32,9 +32,10 @@ export class ColorSchemeExtractor {
     //old coolors format
     while ((match = ColorSchemeExtractor.funnyHexRejex.exec(content)) !== null) {
         let foundStr = match[0];
-        foundStr = foundStr.replace("\"", "");
-        foundStr = foundStr.replace("hex:", "");
+        foundStr = foundStr.replaceAll("\"", "");
+        foundStr = foundStr.replaceAll("hex:", "");
         foundStr = "#"+foundStr;
+        console.log("Found string being pushed: ", foundStr);
         hexColors.push(foundStr);
     }
 
