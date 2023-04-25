@@ -14,7 +14,9 @@ export class ColorSchemeExtractor {
 
     // Find and store hex codes
     while ((match = ColorSchemeExtractor.hexRegex.exec(content)) !== null) {
-      hexColors.push(match[0].toLowerCase());
+      let color = match[0].toLowerCase();
+        color = color.charAt(0) === "#" ? color : "#" + color;
+        hexColors.push();
     }
 
     // Find and store rgb and rgba codes
