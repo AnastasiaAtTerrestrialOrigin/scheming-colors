@@ -60,15 +60,21 @@ export const LoadPage: React.FC = ({}) => {
             const response: any = await readFileContents(file);
             console.log("fileFromInputContents: ", response);
             const colors = ColorSchemeExtractor.extractColors(response.content);
-            const colorScheme = {
-                id: generateColorSchemeId(colors), 
-                // remove extension
-                name: response.name.slice(0, response.name.lastIndexOf('.')), 
-                colors
-            } as ColorScheme;
+            try {
+                const colorScheme = {
+                    id: generateColorSchemeId(colors), 
+                    // remove extension
+                    name: response.name.slice(0, response.name.lastIndexOf('.')), 
+                    colors
+                } as ColorScheme;
+                newColorSchemes.push(colorScheme);
+                console.log("Created new color scheme: ", colorScheme);
+            }
+            catch(error){
+                console.warn("Error generating color scheme for file: ", response.name);
+                console.error(error);
+            };           
             
-            newColorSchemes.push(colorScheme);
-            console.log("Created new color scheme: ", colorScheme);
         }
         return newColorSchemes;
     }
