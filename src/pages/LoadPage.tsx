@@ -86,6 +86,7 @@ export const LoadPage: React.FC = ({}) => {
     
     return(
         <div id="load-page">
+            <h1>{process.env.REACT_APP_APP_NAME}</h1>
             <div className="input-holder">
                 <label htmlFor="folderInput">Select foles to load</label>
                 <input type="file" id="folderInput" name="folderInput" multiple
