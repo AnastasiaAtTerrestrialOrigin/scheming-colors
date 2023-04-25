@@ -96,14 +96,14 @@ export const LoadPage: React.FC = ({}) => {
                 <input type="button" value="save" onClick={onSave} />
             </div>
                
-            <ColorSchemesList colorSchemes={colorSchemes} />
-            
             <div>
                 <>
                     Color schemes length: {colorSchemes.length}<br />
                     Files: {files.map((file) => file.name).join(',')}
                 </>
             </div>
+            
+            <ColorSchemesList colorSchemes={colorSchemes} />
             
         </div>
     );

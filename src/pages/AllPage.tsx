@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { useDataProviders } from '../DataProvidersContext';
 import ColorScheme from '../colorScheme/ColorScheme';
+import ColorSchemesList from '../colorScheme/components/ColorSchemesList';
 
 export const AllPage: React.FC = ({}) => {
     
@@ -26,6 +27,7 @@ export const AllPage: React.FC = ({}) => {
     return (
         <div id="all-page">
             This page shows all color schemes;
+            <ColorSchemesList colorSchemes={colorSchemes} />
         </div>
     );
 };

@@ -3,7 +3,7 @@ import ColorScheme from './ColorScheme';
 
 export class ColorSchemeDao extends ItemDaoFirebase<ColorScheme> {
     constructor() {
-        super("Color");
+        super("ColorScheme");
     }
 }
 
