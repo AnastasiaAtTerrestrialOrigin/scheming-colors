@@ -1,0 +1,29 @@
+
+.color-scheme-preview {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 30em;
+    margin: 0.5em;
+    box-sizing: border-box;
+    
+    height: 10em;
+    max-height: 100%;
+    border-radius: 1em;
+    overflow: hidden;
+    
+    
+    /*border: 1px solid black;*/
+}
+
+.color {
+    height: 100%;
+    flex: 1;
+    display: flex;
+}
+
+.color .color-tag {
+    margin: auto;
+}

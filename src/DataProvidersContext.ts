@@ -1,5 +1,5 @@
 import { useContext, createContext } from 'react';
-import ColorSchemeDao from './ColorSchemeDao';
+import ColorSchemeDao from './colorScheme/ColorSchemeDao';
 
 export const dataProviders = {
     colorSchemeDao: new ColorSchemeDao(),

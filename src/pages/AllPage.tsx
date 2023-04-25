@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { useDataProviders } from '../DataProvidersContext';
-import ColorScheme from '../ColorScheme';
+import ColorScheme from '../colorScheme/ColorScheme';
 
 export const AllPage: React.FC = ({}) => {
     
