@@ -1,0 +1,17 @@
+
+.button {
+    cursor: pointer;
+    padding: 1em;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 1ex;
+    margin: 1ex;
+    display: inline-block;
+}
+
+.button:active {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.button:active label{
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}

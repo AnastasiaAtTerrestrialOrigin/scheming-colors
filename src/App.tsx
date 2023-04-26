@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import CorePage from './CorePage';
 import Menu from './components/Menu';
 
+import './App.css';
+
 // pages
-import AllPage from './pages/AllPage';
-import NewPage from './pages/NewPage';
-import LoadPage from './pages/LoadPage';
+import AllPage from './colorScheme/pages/AllPage';
+import NewPage from './colorScheme/pages/NewPage';
+import LoadPage from './colorScheme/pages/LoadPage';
 import { DataProvidersContext, dataProviders } from './DataProvidersContext';
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
         AllPage, NewPage, LoadPage
     ]);
     const [ pagesInMainMenu, setPagesInMainMenu ] = useState<CorePage[]>([
-        AllPage, NewPage, LoadPage
+        AllPage, LoadPage
     ]);
     
     const MainPage = AllPage;

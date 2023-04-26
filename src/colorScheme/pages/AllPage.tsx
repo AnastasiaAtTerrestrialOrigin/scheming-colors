@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { CiPalette as pageIcon } from 'react-icons/ci';
 
-import { useDataProviders } from '../DataProvidersContext';
-import ColorScheme from '../colorScheme/ColorScheme';
-import ColorSchemesList from '../colorScheme/components/ColorSchemesList';
-import CorePage from '../CorePage';
+import { useDataProviders } from '../../DataProvidersContext';
+import ColorScheme from '../ColorScheme';
+import ColorSchemesList from '../components//ColorSchemesList';
+import CorePage from '../../CorePage';
 
 const PAGE_NAME = "View All";
 const PAGE_PATH = "/view";
@@ -31,6 +31,7 @@ export const AllPage: CorePage = ({}) => {
  
     return (
         <div id="all-page">
+            <h1>{PAGE_NAME}</h1>
             <ColorSchemesList colorSchemes={colorSchemes} />
         </div>
     );

@@ -9,7 +9,6 @@
 
 .menu li {
     display: flex;
-    padding: 1em;
     list-style-type: none;
     flex: 1;
     margin: auto;
@@ -26,12 +25,14 @@
     text-decoration: none;
 }
 
-.menu a.active {
+.menu .button.active {
     font-weight: bold;
 }
 
 .menu .button {
     display: flex;
+    box-shadow: none;
+    margin: none;
 }
 
 .menu .button .icon {

@@ -2,6 +2,8 @@
 import ColorScheme from '../ColorScheme';
 import ColorSchemePreview from './ColorSchemePreview';
 
+import './ColorSchemesList.css';
+//
 interface ColorSchemesListParams{
     colorSchemes: ColorScheme[]
 }

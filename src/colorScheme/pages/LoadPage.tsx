@@ -1,14 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { CiFolderOn as pageIcon } from 'react-icons/ci';
 
-import { useDataProviders } from '../DataProvidersContext';
-import ColorScheme, { generateColorSchemeId } from '../colorScheme/ColorScheme';
-import ColorSchemeExtractor from '../colorScheme/ColorSchemeExtractor';
-import ColorSchemePreview from '../colorScheme/components/ColorSchemePreview';
-import ColorSchemesList from '../colorScheme/components/ColorSchemesList';
-import CorePage from '../CorePage';
-
-import './colorSchemes.css';
+import { useDataProviders } from '../../DataProvidersContext';
+import ColorScheme, { generateColorSchemeId } from '../ColorScheme';
+import ColorSchemeExtractor from '../ColorSchemeExtractor';
+import ColorSchemesList from '../components/ColorSchemesList';
+import CorePage from '../../CorePage';
+import Button from '../../components/Button';
 
 const PAGE_NAME = "Load";
 const PAGE_PATH = "/load";
@@ -19,6 +17,8 @@ export const LoadPage: CorePage = ({}) => {
     const [ colorSchemes, setColorSchemes ] = useState<ColorScheme[]>([]);
     
     const { colorSchemeDao } = useDataProviders();
+    
+    const defaultFileInputRef = useRef<HTMLInputElement>(null);
     
     const onSave = () => {
         colorSchemeDao.saveItems(colorSchemes).then((result) => {
@@ -96,23 +96,32 @@ export const LoadPage: CorePage = ({}) => {
     
     return(
         <div id="load-page">
-            <h1>{process.env.REACT_APP_APP_NAME}</h1>
-            <div className="input-holder">
-                <label htmlFor="folderInput">Select foles to load</label>
+            <h1>{PAGE_NAME}</h1>
+
+            <div className="center-contents control-strip">
+                <Button value="Select files to load" onClick={(e) => 
+                    defaultFileInputRef?.current?.click()
+                } />
                 <input type="file" id="folderInput" name="folderInput" multiple
-                    onChange={getFiles}/>
-            </div>
-            <div className="input-holder">
-                <input type="button" value="save" onClick={onSave} />
-            </div>
-               
-            <div>
-                <>
-                    Color schemes length: {colorSchemes.length}<br />
-                    Files: {files.map((file) => file.name).join(',')}
-                </>
+                    onChange={getFiles} ref={defaultFileInputRef}
+                    style={{display: "none"}} />
+
+                <Button value="Save" onClick={onSave} />
             </div>
             
+            <div className="center-contents messages">
+                { colorSchemes.length > 0 &&
+                    <div className="message">
+                        Number of Color Schemes: {colorSchemes.length}
+                    </div>
+                }
+                { files.length > 0 &&
+                    <div className="message">
+                        Files Loaded: {files.map((file) => file.name).join(', ')}
+                    </div>
+                }
+            </div>
+               
             <ColorSchemesList colorSchemes={colorSchemes} />
             
         </div>

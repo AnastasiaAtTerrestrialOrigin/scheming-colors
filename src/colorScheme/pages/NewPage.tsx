@@ -1,4 +1,4 @@
-import CorePage from '../CorePage';
+import CorePage from '../../CorePage';
 
 import { CiSquarePlus as pageIcon } from 'react-icons/ci';
 
